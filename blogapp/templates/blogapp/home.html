@@ -1,0 +1,41 @@
+{% extends 'blogapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %} 
+   
+ {% for post in posts %}
+    <div class="card mb-3" >
+      <div class="row g-0">
+        <div class="col-md-1">
+          <img style = "width: 60px; height: 60px;" src="{{ post.author.profile.image.url }}" class="m-2 rounded-circle" alt="...">
+        </div>
+        <div class="col-md-11">
+            <div class="card-body">
+              <h5 class="card-title"><a class="user-title" href="{% url 'user-post' post.author.username %}">{{ post.author }}</a></h5>
+              <p class="card-text border-bottom mb-2"><small class="text-muted"><i>Posted on {{ post.date_posted | date:"F d,Y" }}</i></small></p>
+              <h3 class="card-title "><a class = "article-heading" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3>
+              <p class="card-text">{{ post.content }}</p>            
+            </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+  <div class="pagination mb-5 justify-content-center">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-secondary" href="?page=1">&laquo; first</a>
+            <a class="btn btn-outline-secondary" href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-secondary" href="?page={{ page_obj.next_page_number }}">next</a>
+            <a class="btn btn-outline-secondary" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock content %}
