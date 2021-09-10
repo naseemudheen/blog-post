@@ -123,10 +123,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT =MEDIA_ROOT = os.path.join(BASE_DIR,'staticfiles')
+# STATIC_ROOT =os.path.join(BASE_DIR,'static')
 STATICFILES_DIRS = [
-    BASE_DIR / "static"
+    BASE_DIR / "static",
+    '/var/www/static/',
 ]
+
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
@@ -146,3 +148,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER =os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD =os.environ.get('EMAIL_PASS') 
+
