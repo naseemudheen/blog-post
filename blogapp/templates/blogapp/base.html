@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'blogapp/main.css' %}">
 </head>
-<body class="bg-light">
+<body class="">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container ">
@@ -46,9 +46,9 @@
             </div>
           </nav>
     </header>
-    <div class="container ">
-    <div class="row mt-3 ms-5">
-        <div class="col-md-8 col-sm-10">
+    <div class="container-md">
+    <div class="row mt-3">
+        <div class="col-md-8 col-auto">
         {% if messages %}
             {% for message in messages %}
               <div class="alert alert-{{ message.tags }}">
@@ -60,8 +60,8 @@
         </div>
 
 
-            <div class="col-md-4 mt-2 row-cols-sm-1">
-              <div class="card p-2" style="width: 18rem;">
+            <div class="col justify-content-center">
+              <div class="card p-2" >
                 <h3 class="card-title"><b>Our side bar</b></h3>
                 <h6 class="card-subtitle mb-2 text-muted">All the new details available Here</h6>
                 <ul class="list-group list-group-flush">
