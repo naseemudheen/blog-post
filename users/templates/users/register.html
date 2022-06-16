@@ -1,14 +1,40 @@
 {% extends 'blogapp/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section  border-1 rounded bg-light ms-auto p-3 ">
+<div class="row m-1">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-8 rounded  bg-light p-3 ">
         <div class="form-group" >
             <h3 class="mb-3 border-bottom">Join Today</h3>
-            <form method="POST">
+            <!-- <form method="POST">
             {% csrf_token %}
             {{ form|crispy}}
                 <button class="btn  btn-outline-dark " type="submit"> Sign Up</button>
-            </form>
+            </form> -->
+            <form method="post">
+            {% csrf_token %}
+
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>                    
+                   {{ form.username }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>                    
+                     {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    <label for="password1" class="form-label">Password</label>                    
+                     {{ form.password1 }}
+                </div>
+                <div class="mb-3">
+                    <label for="password2" class="form-label">Confirm Password</label>                     
+                    {{ form.password2 }}
+                </div>
+                <button class="btn  btn-outline-dark " type="submit"> Sign Up</button>
+              </form>
         </div>
             <div class ="border-top pt-3 mt-3">
                 <small class="ps-2 text-muted ">
@@ -16,4 +42,5 @@
                 </small>
             </div>
     </div>
+</div>
 {% endblock content %}
