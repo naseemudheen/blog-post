@@ -1,26 +1,33 @@
 {% extends 'blogapp/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section  border-1 rounded bg-light msauto- p-3 ">
-        <div class="form-group" >
-            <h3 class="mb-3 border-bottom">Log In Now</h3>
-            <form method="POST">
-            {% csrf_token %}
-            {{ form|crispy}}
-                <div class="mt-3">
-                    <button class=" btn  btn-outline-dark" type="submit"> Sign In</button>
-                    <a href ="{% url 'password_reset' %}">
-                        <small class="text-muted ms-3">Forget Password?</small>
-                    </a>
-                </div>
-            </form>
+    <div class="row m-1">
+        <div class="col-md-4">
+
         </div>
-            <div class ="border-top pt-3 mt-3">
-                <small class="ps-2 text-muted ">
-                Need an Account?<a class="text-muted" href="{% url 'register' %}" ><b>Sign Up Now</b> </a>
-                </small>
-            </div>   
+        <div class="col-md-8 rounded  bg-light p-3 ">
+            
+            <div class="form-group" >
+                <h3 class="mb-3 border-bottom">Log In Now</h3>
+                <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                    <div class="mt-3">
+                        <button class=" btn  btn-outline-dark" type="submit"> Sign In</button>
+                        <a href ="{% url 'password_reset' %}">
+                            <small class="text-muted ms-3">Forget Password?</small>
+                        </a>
+                    </div>
+                </form>
+            </div>
+                <div class ="border-top pt-3 mt-3">
+                    <small class="ps-2 text-muted ">
+                    Need an Account? <a class="text-muted" href="{% url 'register' %}" ><b>Sign Up Now</b> </a>
+                    </small>
+                </div>   
+        </div>
     </div>
+
 
 
 {% endblock content %}
